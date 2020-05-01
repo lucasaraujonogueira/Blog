@@ -1,0 +1,7 @@
+// Aqui vamos fazer as anotações de conexões
+
+
+criando pasta database onde ficara os dados do bd 
+- Vamos criar uma script chamado database.js
+dentro dele vamos importar o sequelize e criar um objeto de conexão 
+

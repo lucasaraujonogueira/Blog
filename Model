@@ -1,0 +1,16 @@
+Criando um blog cmo painel admistradtivo, nela vai conter a categoria, artigo 
+
+
+
+ARQUITETURA DE ORGANIZAÇÃO POR DOMINIO TIPO MVC 
+
+vamos separar cada arquvio para cada lógica (ex)
+
+lógica de categórias
+
+l[ogica de arquiv]
+
+login e autentic
+
+painel adm 
+
