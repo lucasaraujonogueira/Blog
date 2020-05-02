@@ -1,0 +1,43 @@
+<%- include ("../../partials/header") %>
+<%- include ("../../partials/navbar") %>
+
+
+    <div class="container">
+        <hr>
+        <h2>Categorias</h2>
+        <br>
+        <!-- Aqui vamos criar um botão cirar nova categoria -->
+        <a  class="btn btn-success" href="/admin/categories/new">Categorias</a>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Ações</th>
+              </tr>
+           </thead>
+           <!--Corpo da table, onde vai ficar os dados, vamos pegar os dados das categorias do bd e colocar no corpo -->
+           <tbody>
+               <!-- Cada categoria vai ser um tr, vou usar um foreach para adc -->
+               <% categories.forEach(category => { %>
+                    <!-- Dados do forEach-->
+                     <tr>
+                         <th> <%= category.id %> </th>
+                         <th> <%= category.title %> </th>
+                         <th> <%= category.slug %> </th>                    
+                          <!-- Aqui vou adiconar os botões-->
+                          <th>
+                               <!-- Aqui vou adiconar os botão amarelo para editar-->
+                                <button class="btn btn-warning">Editar</button>
+                                 <!-- Aqui vou adiconar os botão vermelho para excluir-->
+                                 <button class="btn btn-danger">Deletar</button>
+                          </th>
+                     </tr>
+                <% }) %>
+           </tbody>
+        </table>   
+    </div>
+
+<%- include ("../../partials/footer") %>

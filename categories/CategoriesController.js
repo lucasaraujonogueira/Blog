@@ -14,7 +14,7 @@ router.get('/admin/categories/new',(req, res) => { // Rota para admin
     //EXIBIR FORMULÁRIO DE CRIAÇÃO DE CATEGORIA
 })
 
-//Rotar para salvar a categoria
+//CADASTRANDO A CATEGORIA NO CATEGORIES CONTROLLER 
 router.post('/categories/save', (req, res) => {
     // RECEBENDO OS DADOS DO FORMULÁRIO
     let title = req.body.title;
@@ -33,6 +33,20 @@ router.post('/categories/save', (req, res) => {
     }else{
         res.redirect("/admin/categories/new")
     }
+})
+
+
+
+
+// Aqui vou criar uma rota para tabelas
+router.get('/admin/categories',(req, res) => { // Rota para admin 
+
+    //Faz o select no banco de dados
+    Category.findAll().then(categories =>{
+
+        res.render("admin/categories/index", {categories: categories}); // O JSON VAI PASSAR O JSON PARA FRONT-END
+
+    })
 })
 
 module.exports = router;
