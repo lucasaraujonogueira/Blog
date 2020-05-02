@@ -10,7 +10,7 @@ const Category = connection.define('categories', {
     title: {
         type: Sequelize.STRING,
         allowNull: false,
-        primaryKey:true
+       
         //SLUG É VERSÃO DO TITULO DA CATEGORIA PARA ROTA 
     }, slug: {
         type: Sequelize.STRING,
@@ -20,7 +20,7 @@ const Category = connection.define('categories', {
 })
 
 //SINCRONIZANDO PARA CRIAR O RELACIONAMENTO
-Category.sync({force: true})
+//Category.sync({force: true})
 
 
 

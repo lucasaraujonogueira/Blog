@@ -36,8 +36,6 @@ router.post('/categories/save', (req, res) => {
 })
 
 
-
-
 // Aqui vou criar uma rota para tabelas
 router.get('/admin/categories',(req, res) => { // Rota para admin 
 
@@ -48,6 +46,36 @@ router.get('/admin/categories',(req, res) => { // Rota para admin
 
     })
 })
+
+/* ROTA PARA DELETAR CATEGORIA NO BD */
+router.post('/categories/delete', (req, res) => {
+   // Como eu não tenho id , vou pegar pelo titulo
+     let id = req.body.id;
+    if(id != undefined){
+        if(!isNaN(id)){
+                // Aqui vamos deletar com determinado title
+            Category.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect("/admin/categories");
+            })
+        }
+        else{
+            res.redirect('/admin/categories')
+        }
+       
+    }
+    else{
+        res.redirect('/admin/categories')
+    }
+      
+
+})
+
+
+
 
 module.exports = router;
 //PARA USAR O SLUG TENHO QUE BAIXAR A BIBLIOTECA SLUGIFY, transforma um texto normal em um slug 

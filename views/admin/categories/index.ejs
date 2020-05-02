@@ -31,8 +31,14 @@
                           <th>
                                <!-- Aqui vou adiconar os botão amarelo para editar-->
                                 <button class="btn btn-warning">Editar</button>
-                                 <!-- Aqui vou adiconar os botão vermelho para excluir-->
-                                 <button class="btn btn-danger">Deletar</button>
+                                 <!-- Aqui vou adiconar os botão vermelho para excluir, onsumit sempre que o usuário subemter-->
+                                 <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                     <!-- Escondendo o campo pro usuário -->
+                                                    <!-- Encaminhando esse campo para o noosso back-->
+                                     <input type="hidden" name="id" value="<%= category.id %>">
+                                    <button class="btn btn-danger">Deletar</button>
+                                 </form>
+                                 
                           </th>
                      </tr>
                 <% }) %>
@@ -41,3 +47,25 @@
     </div>
 
 <%- include ("../../partials/footer") %>
+<!-- script que vai criar uma função que vai exigir a confirmação do usuário para deletar uma categoria-->
+<script>
+
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+
+        console.log("Formulário não foi enviado");
+
+        // Confir é um pop up, vou colocae uma mensagem
+       var decision =  confirm("Você quer deletar essa categoria ?");
+        if(decision){
+            //Mandando o html enviar o formulário
+            form.submit();
+
+                    // Acessando o formulário
+            console.log("Eu escolhi deletar")
+        }
+        else{
+            console.log("Não quero deletar");
+        }
+    } 
+</script>
