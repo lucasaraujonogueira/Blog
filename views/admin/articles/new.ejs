@@ -1,0 +1,61 @@
+<%- include ("../../partials/header") %>
+
+    <%- include ("../../partials/navbar") %>
+    <!-- Criando o formulário de categorias -->
+    <div class="container">
+        <br>
+        <div class="card">
+    
+            <div class="card-header">
+                <h2>Novo Artigo</h2>
+            </div>
+
+         
+            <div class="card-body">
+                    <!--Vou ter os dados necessario para criar uma categoria-->
+                <form action="/categories/save" method="POST">
+                    <input class="form-control" type="text" name="title" placeholder="Defina o título da artigo"> <br>
+                    <textarea class="form-control" id="article" placeholder="Escreva o artigo aqui" name="body" size="450">
+                           <!-- Quero exibir uma listagem de categorias no formulário pro usuário selecionar -->
+                           <label>Categoria</label>
+                           <select name="category" class="form-control">
+                               <!-- Gerando as opções dinamicamente -->
+                                <% categories.forEach((category) => { %>
+                                     <!-- Option vai ter o conteudo -->
+                                     <option value="<%= category.id %>"> <%= category.title %> </option>
+                                <% }) %>
+                           </select>
+                    </textarea>
+                    <br>
+                    <button  type="submit" class="btn btn-success">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include ("../../partials/footer") %>
+
+<script src="/tinymce/tinymce.min.js"> </script>
+
+<!-- COnfigurando o tiny-->
+<script> 
+
+    tinymce.init({
+        //Tradução 
+        language: 'pt_BR',
+        // Informando para o tiny em qual text area é pra ele agir 
+        selector: "#article",
+        // COlocando plugin 
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media  save'
+        ]
+    })
+
+</script>
+
+<!-- Class do boostrap para deixar o botão bonito é form-control no input  -->
+<!--
+    Dica colocar o formulário dentro do card
+    Crio uma class card-header aonde vai ficar armazenado o h2 Cadastro de categoria
+    vou criar card-body onde vou colocar
+
+-->

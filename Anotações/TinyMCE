@@ -1,0 +1,29 @@
+PARA A TEXT AREA 
+
+Principal biblioteca para editores de textos =  TinyMCE 
+
+SERVE PRA COLOCAR VIDEOS, IMAGENS ETC 
+
+
+ELE É GRATUITO E OPEN = https://www.tiny.cloud/get-tiny/self-hosted/
+
+
+chamar esse script na view 
+<script src="/tinymce/tinymce.min.js"> </script>
+
+adicionar o id na textarea, pq precisamos dizer pro tiny em qul text area queremos adicionar 
+
+<!-- COnfigurando o tiny-->
+<script> 
+
+    tinymce.init({
+        // Informando para o tiny em qual text area é pra ele agir 
+        selector: "#article"
+    })
+
+</script>
+
+
+Listar a categoria no select 
+para que o usuário consiga selecionar o artigo dele 
+
