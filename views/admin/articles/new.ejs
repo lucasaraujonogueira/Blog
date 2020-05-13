@@ -13,19 +13,19 @@
          
             <div class="card-body">
                     <!--Vou ter os dados necessario para criar uma categoria-->
-                <form action="/categories/save" method="POST">
+                <form action="/articles/save" method="POST">
                     <input class="form-control" type="text" name="title" placeholder="Defina o título da artigo"> <br>
-                    <textarea class="form-control" id="article" placeholder="Escreva o artigo aqui" name="body" size="450">
-                           <!-- Quero exibir uma listagem de categorias no formulário pro usuário selecionar -->
+                    <textarea class="form-control" id="article" placeholder="Escreva o artigo aqui" name="body"> </textarea> <br>
+                     <!-- Quero exibir uma listagem de categorias no formulário pro usuário selecionar -->
                            <label>Categoria</label>
+                        <!---   exibir listagen de categoria no formulário do new.ejs para o usuário selecionar qual categoria esse post vai fazer parte ---> 
                            <select name="category" class="form-control">
                                <!-- Gerando as opções dinamicamente -->
                                 <% categories.forEach((category) => { %>
                                      <!-- Option vai ter o conteudo -->
-                                     <option value="<%= category.id %>"> <%= category.title %> </option>
+                                     <option value="<%= category.id %>">> <%= category.title %> </option>
                                 <% }) %>
                            </select>
-                    </textarea>
                     <br>
                     <button  type="submit" class="btn btn-success">Cadastrar</button>
                 </form>

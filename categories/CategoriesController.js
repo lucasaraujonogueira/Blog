@@ -85,7 +85,7 @@ const slugify = require('slugify');
         }
 
 
-        // Pesquisae categoria pelo id = findPk()
+        // Pesquisar categoria pelo id = findPk()
         Category.findByPk(id).then((category) => {
             // Verificar se a categoria é nulla
             if(category != undefined){

@@ -5,3 +5,6 @@ criando pasta database onde ficara os dados do bd
 - Vamos criar uma script chamado database.js
 dentro dele vamos importar o sequelize e criar um objeto de conexão 
 
+createAt e uptedAt  qual momento aquele dado foi criado ou editado 
+
+horas do arquvo: creatAt  

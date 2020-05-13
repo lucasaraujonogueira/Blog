@@ -36,7 +36,7 @@ Article.belongsTo(Category); //UM ARTICLE PERTENCE A UMA CATEGORIA
 
 //SEMPRE QUE CRIAMOS UM RELACIONAMENTO TEMOS QUE ATUALIZAR O BANCO DE DADOS
    //SINCRONIZANDO OS MODELS COM A TAB NO BD
-   //Article.sync({force: true}) //criando tabela sempre que recarregar o programa
+  // Article.sync({force: true}) //criando tabela sempre que recarregar o programa
    
    
 
