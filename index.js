@@ -100,6 +100,35 @@ app.get("/", (req, res) => {
    })
   
 })
+
+
+// ROTA PARA FILTRAR ARTIGOS POR CATEGORIA 
+app.get("/category/:slug", (req, res) => {
+    //Vamos pesquisar pelo slug 
+    let slug = req.params.slug;
+
+    Category.findOne({
+        where: {
+            slug: slug
+        },
+        //Fazendo o JOIN 
+        include: [{model: Article}] // QUNADO BUSCAR A CATEGORIA, INCLUA TODO ARTIGO QUE FAZ PARTE DELA
+    }).then(category => {
+        // verificar se a categoria é nulla
+        if (category != undefined) {
+                // FAZENDO BUSCA POR TODAS CATEGORIAS 
+            Category.findAll().then(categories => {
+                res.render("index", { articles: category.articles, categories: categories });
+               })    
+        } else {
+            res.redirect("/");
+        }
+    }).catch(err => {
+        res.redirect("/")
+    })
+})
+
+
 app.listen(3009, () => {
     console.log("Servidor rodando com sucesso");
 })
