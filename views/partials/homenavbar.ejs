@@ -1,0 +1,28 @@
+<!-- NAVBAR DA PÁGINA INICIAL, para o usuário  -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a  class="navbar-brand" href="/"> <!-- Classe vai alinha nav bar a esquerda-->    
+        <!-- vai ser a logo que vai direcionar para página principal-->
+        Guia Express   
+    </a>
+
+    <!-- Adicionando um menu  com ul, classe de alinhamento mr-auto ela vai adicionar uma margin total a difereita -->
+    <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+            <a  class="nav-link" href="/"> Home </a>
+        </li>
+
+       <!-- aQUI VAMOS TER A LISTAGEM DE CATEGORIA -->
+    <% categories.forEach(category => { %>
+        <li class="nav-item">
+            <a  class="nav-link" href="/"> <%= category.title %> </a>
+        </li>
+    <% }) %>
+
+     
+    </ul>
+    
+  </nav>
+  
+

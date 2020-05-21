@@ -38,6 +38,5 @@ Article.belongsTo(Category); //UM ARTICLE PERTENCE A UMA CATEGORIA
    //SINCRONIZANDO OS MODELS COM A TAB NO BD
   // Article.sync({force: true}) //criando tabela sempre que recarregar o programa
    
-   
 
 module.exports = Article;

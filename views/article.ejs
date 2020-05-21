@@ -1,0 +1,25 @@
+<!-- View de artigos, para o usuário -->
+<%- include ("partials/header") %>
+<%- include ("partials/homenavbar") %>
+<body>
+    <br>
+   <!-- Vou exibir os artigos cadastrados -->
+   <div class="container">
+         
+        <div class="card">
+            <div class="card-header">
+                <h2> <%= article.title %> </h2>
+            </div>
+    
+            <div class="card-body">
+                <!-- O sinal de - vai formatar, ei ejs exiba essa variavel formatando ela com html -->
+                 <%- article.body %> 
+            </div>  
+
+        </div>
+       
+    </div>
+  
+</body>
+<%- include ("partials/footer") %>
+

@@ -48,13 +48,57 @@ app.use("/",categoriesController);
 //Utilizando as rotas que estão dentro do articles 
 app.use("/", articlesController);
 
+// Rota que vai exibir os artigos
+app.get("/:slug", (req, res) => {
+    let slug = req.params.slug;
 
+    // procurar pelo artigo que tem o slug igual doque o usuário colocou
 
+    Article.findOne({
+        where: {
+            slug: slug
+        }
+    }).then(article => {
+        // Vamos verificar se o artigo é diferente de undefined
+        if (article != undefined) {
+
+            //MENU DINÂMICO DE CATEGORIAS
+              //PESQUISAR TODAS CATEGORIAS 
+               // PASSANDO LISTAGEM DE CATEGORIAS 
+            Category.findAll().then(categories => {
+                res.render("article",{article: article, categories: categories});   
+            })
+        }
+        else {
+            res.redirect("/");
+        }
+    }).catch(erro => {
+        res.redirect("/");
+    })
+
+})
 
 
 //Criando rota principal
 app.get("/", (req, res) => {
-    res.render("index");
+   // Vou fazer um select na table de articles 
+      //COMANDO ORDER É PARA ORDER PELO ID, o post novo sempre vai ser o primeiro 
+            //PESQUISANDO OS ARTIGOS E ENVIANDO PARA O FRONT-E
+    Article.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(articles => {
+         //MENU DINÂMICO DE CATEGORIAS
+              //PESQUISAR TODAS CATEGORIAS 
+               // PASSANDO LISTAGEM DE CATEGORIAS 
+        Category.findAll().then(categories => {
+            res.render("index",{articles: articles, categories: categories});   
+      })
+
+          
+   })
+  
 })
 app.listen(3009, () => {
     console.log("Servidor rodando com sucesso");

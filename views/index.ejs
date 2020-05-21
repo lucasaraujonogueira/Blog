@@ -1,7 +1,37 @@
 <%- include ("partials/header") %>
+<%- include ("partials/homenavbar") %>
 <body>
+  <hr>
+    <div class="jumbotron">
+        <h1 class="display-6" style="text-align: center;">Bem vindo</h1>
+        <p class="lead" style="text-align: center;">Este é um simples blog de noticias</p>
+        <hr class="my-4">
+        <p style="text-align: center;">Descrição detalhada</p>
+    
+      </div>
 
-     <h1> Testando </h2>
+
+   <!-- Vou exibir os artigos cadastrados -->
+  <hr>
+   <div class="container">
+         <!-- VAMOS FAZER FOREACH DE ARTIVOS-->
+    
+    <% articles.forEach(article => { %>
+        <!-- MONTANDO ESTRUTURA-->
+        <div class="card">
+            <div class="card-header">
+                <h2> <%= article.title %> </h2>
+            </div>
+            <div class="card-body">
+                <!--  Ler o artigo -->
+                <a href="/<%= article.slug %>" class="btn btn-sucess bg-info">Ler Artigo</a>
+            </div>
+        </div>
+        <br>
+    <% }) %> 
+
+   </div>
+  
 
 </body>
 <%- include ("partials/footer") %>
