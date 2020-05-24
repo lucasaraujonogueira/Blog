@@ -83,6 +83,11 @@ router.post('/articles/save', (req, res) => {
 
     })
 
+router.get("/admin/articles/edit", (req, res) => {
+
+    res.render("admin/articles/edit");  
+})
+
 
 
 module.exports = router;
